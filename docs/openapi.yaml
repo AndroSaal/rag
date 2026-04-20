@@ -1,0 +1,49 @@
+openapi: 3.0.3
+info:
+  title: Generic RAG API
+  version: "1.0.0"
+paths:
+  /health:
+    get:
+      summary: Liveness probe
+      responses:
+        "200":
+          description: OK
+  /ready:
+    get:
+      summary: Readiness probe
+      responses:
+        "200":
+          description: Ready
+  /documents:
+    post:
+      summary: Ingest document
+      requestBody:
+        required: true
+      responses:
+        "202":
+          description: Accepted
+  /retrieve:
+    post:
+      summary: Retrieve chunks by semantic search
+      requestBody:
+        required: true
+      responses:
+        "200":
+          description: Retrieved
+  /chat:
+    post:
+      summary: Chat with RAG context (SSE)
+      requestBody:
+        required: true
+      responses:
+        "200":
+          description: Stream started
+  /feedback:
+    post:
+      summary: Save response feedback
+      requestBody:
+        required: true
+      responses:
+        "202":
+          description: Accepted

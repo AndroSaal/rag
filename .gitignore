@@ -1,0 +1,5 @@
+.env
+telegram_ingest
+rag-server
+bin/
+dist/
